@@ -1,0 +1,62 @@
+//
+//  LocationViewViewController.swift
+//  WaveAccessTestApp
+//
+//  Created by Arseniy Dorogin on 20.04.2022.
+//  
+//
+
+import UIKit
+import MapKit
+
+class LocationViewViewController: UIViewController {
+    
+    // MARK: - Properties
+    var presenter: LocationViewViewToPresenterProtocol?
+    
+    private lazy var locationView: LocationView = LocationView()
+   
+    
+    // MARK: - Lifecycle Methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        presenter?.viewDidLoad()
+        layoutUI()
+        styleUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode = .never
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    private func layoutUI() {
+        self.view.addSubview(locationView)
+        locationView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    private func styleUI() {
+        self.view.backgroundColor = .white
+    }
+}
+
+extension LocationViewViewController:LocationViewPresenterToViewProtocol{
+    // TODO: Implement View Output Methods
+    
+    public func fillData(selectedLocation: Location) {
+        self.title = selectedLocation.name
+        self.locationView.fillData(selectedLocation: selectedLocation)
+    }
+
+    public func centerMap(on coordinates: Coordinates) {
+        self.locationView.centerMap(on: coordinates)
+    }
+}
+
