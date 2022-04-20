@@ -16,7 +16,6 @@ class LocationViewViewController: UIViewController {
     
     private lazy var locationView: LocationView = LocationView()
    
-    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,20 +35,18 @@ class LocationViewViewController: UIViewController {
     }
     
     private func layoutUI() {
-        self.view.addSubview(locationView)
+        view.addSubview(locationView)
         locationView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
     private func styleUI() {
-        self.view.backgroundColor = .white
+        view.backgroundColor = .white
     }
 }
 
-extension LocationViewViewController:LocationViewPresenterToViewProtocol{
-    // TODO: Implement View Output Methods
-    
+extension LocationViewViewController: LocationViewPresenterToViewProtocol {
     public func fillData(selectedLocation: Location) {
         self.title = selectedLocation.name
         self.locationView.fillData(selectedLocation: selectedLocation)

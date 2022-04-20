@@ -65,8 +65,6 @@ extension LocationsListViewController: LocationsListPresenterToViewProtocol {
         self.dataSource = dataSource
         tableView.reloadData()
     }
-
-    // TODO: Implement View Output Methods
 }
 
 extension LocationsListViewController: UITableViewDelegate, UITableViewDataSource {

@@ -109,13 +109,13 @@
 		9A76630B280FFBB000FA9419 /* WaveAccessTestApp */ = {
 			isa = PBXGroup;
 			children = (
+				9A766320280FFBB600FA9419 /* App */,
 				9A766348281033BF00FA9419 /* Extensions */,
 				9A7663422810317700FA9419 /* UIComponents */,
 				9A76633F28100FA200FA9419 /* Service */,
 				9A76633C28100EE900FA9419 /* Helpers */,
 				9A766323280FFC1500FA9419 /* Models */,
 				9A766322280FFC0A00FA9419 /* Modules */,
-				9A766320280FFBB600FA9419 /* App */,
 				9A766321280FFBBE00FA9419 /* Resources */,
 			);
 			path = WaveAccessTestApp;
