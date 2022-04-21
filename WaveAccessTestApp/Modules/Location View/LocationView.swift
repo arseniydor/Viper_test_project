@@ -11,11 +11,6 @@ import MapKit
 
 class LocationView: UIView {
     
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        return scrollView
-    }()
-    
     private lazy var contentView: UIView = {
         let view = UIView()
         return view
@@ -75,32 +70,20 @@ class LocationView: UIView {
         return label
     }()
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        scrollView.contentSize = CGSize(
-            width: UIScreen.main.bounds.width,
-            height: UIScreen.main.bounds.height)
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         layoutUI()
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        layoutUI()
     }
     
     private func layoutUI() {
-        self.addSubview(scrollView)
-        scrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        scrollView.addSubview(contentView)
+        self.addSubview(contentView)
         contentView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(self)
-            make.width.height.top.bottom.equalTo(self.scrollView)
+            make.edges.equalToSuperview()
         }
         
         contentView.addSubview(mapView)

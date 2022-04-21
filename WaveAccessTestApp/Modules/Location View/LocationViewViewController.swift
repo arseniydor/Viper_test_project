@@ -37,7 +37,8 @@ class LocationViewViewController: UIViewController {
     private func layoutUI() {
         view.addSubview(locationView)
         locationView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.top.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
     
