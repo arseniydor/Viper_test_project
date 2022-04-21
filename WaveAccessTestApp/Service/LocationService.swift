@@ -19,7 +19,7 @@ class LocationService {
                 let jsonData = try decoder.decode([Location].self, from: data)
                 return jsonData
             } catch {
-                print("error:\(error)")
+                print("error: \(error)")
             }
         }
         return nil
